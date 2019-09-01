@@ -1,0 +1,20 @@
+version: "3"
+services:
+  identidock:
+    build:
+      context: /e/dev/Docker/identidock/
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      ENV: DEV
+    networks:
+      - dev_net
+    volumes:
+      - /e/dev/Docker/identidock/app:/usr/src/app
+  
+  dnmonster:
+    image: amouat/dnmonster
+    networks:
+      - dev_net
+  
