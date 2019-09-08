@@ -3,8 +3,7 @@ services:
   redis:
     image: redis
     networks:
-      - dev_net
+        - dev_net
 
 networks:
-  dev_net:
-  
+    dev_net:
