@@ -84,4 +84,3 @@ for arg in $@; do
   done
 done
 
-echo "END"
