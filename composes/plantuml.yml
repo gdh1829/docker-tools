@@ -1,0 +1,11 @@
+version: "3"
+services:
+  plantuml:
+    image: "plantuml/plantuml-server:jetty"
+    ports:
+        - "8080:8080"
+    environment:
+        - PLANTUML_LIMIT_SIZE=4096
+        - GRAPHVIZ_DOT=/usr/bin/dot
+        - PLANTUML_STATS=off
+        - HTTP_AUTHORIZATION=null
