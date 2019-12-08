@@ -1,22 +1,5 @@
 version: "3"
 services:
     identidock:
-        build:
-            context: /e/dev/docker-tools/identidock/
-            dockerfile: Dockerfile
-        ports:
-            - "5000:5000"
         environment:
-            # You can use one of them, PROD, UT, DEV.
-            ENV: UT
-        networks:
-            - dev_net
-        depends_on:
-            - redis
-        volumes:
-            - /e/dev/docker-tools/identidock/app:/usr/src/app
-
-    dnmonster:
-        image: amouat/dnmonster
-        networks:
-            - dev_net
+            ENV: "UT"
