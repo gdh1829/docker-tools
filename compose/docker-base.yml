@@ -1,0 +1,22 @@
+version: "3"
+services:
+  dev-registry:
+    image: registry
+    ports:
+      - "5000:5000"
+    volumes:
+      - /e/dev/docker-tools/registry:/tmp/registry
+    networks:
+      - devko_net
+    labels:
+      dev-registry.description: "docker local registry"
+
+  redis:
+    image: redis
+    networks:
+      - devko_net
+    labels:
+      redis.description: ""
+
+networks:
+    devko_net:

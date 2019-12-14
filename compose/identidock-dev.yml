@@ -1,0 +1,25 @@
+version: "3"
+services:
+  identidock:
+    build:
+      context: /e/dev/docker-tools/identidock/
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      ENV: "DEV"
+    networks:
+      - devko_net
+    depends_on:
+      - redis
+    volumes:
+      - /e/dev/docker-tools/identidock/app:/var/src/app
+    labels:
+      identidock.description: "identidock simple python application"
+
+  dnmonster:
+    image: amouat/dnmonster
+    networks:
+      - devko_net
+    labels:
+      dnmonster.description: "dnmonster application"

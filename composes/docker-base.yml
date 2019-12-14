@@ -1,9 +1,0 @@
-version: "3"
-services:
-  redis:
-    image: redis
-    networks:
-        - devko_net
-
-networks:
-    devko_net:
