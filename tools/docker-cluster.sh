@@ -75,5 +75,5 @@ while getopts ":hf:a:" opt; do
 done
 shift $((OPTIND -1))
 
-cd $BASE_DIR/composes
+cd $BASE_DIR/compose
 execute "$DOCKER_COMPOSE_FILES" "$COMPOSE_ACTION"
