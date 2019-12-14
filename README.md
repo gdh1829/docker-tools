@@ -1,7 +1,3 @@
----
-Title: Docker tools repository
----
-
 # Docker tools repository
 
 With plantuml-server container, you can simply write uml in markdown.

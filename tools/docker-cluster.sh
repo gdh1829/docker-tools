@@ -12,11 +12,11 @@ showDescription() {
   you can simply cluster up or down together. 
   
   Parameters
-    -h --help   <Optional>    shows descriptions
-    -f --file   <Required>    list of docker-compose.yml file names with comma delimeters
+    -h -help   <Optional>    shows descriptions
+    -f -file   <Required>    list of docker-compose.yml file names with comma delimeters
                               if there are docker-base,yml, jenkins,yml and redis.yml. You can command like the below. 
                               ex) -f docker-base,jenkins,redis
-    -a --action <Optional>    up or down compose action.
+    -a -action <Optional>    up or down compose action.
                               default is up.
   
   USAGE
@@ -54,26 +54,26 @@ execute() {
   $CMD
 }
 
-while getopts ":h:f:a:" opt; do
-    case $opt in
-        f | -file )
+while getopts ":hf:a:" opt; do
+    case "$opt" in
+        f | file )
           makeComposeFileArgs $OPTARG
           ;;
-        a | -action )
+        a | action )
           validateComposeAction $OPTARG
           COMPOSE_ACTION=$OPTARG
           ;;
-        h | -help)
+        h | help )
           showDescription
-          exit
+          exit 1
           ;;
-        \? )
+        * )
           echo "Invalid Option: -${OPTARG}" 1>&2
           exit 1
           ;;
     esac
 done
-# shift $((OPTIND -1))
+shift $((OPTIND -1))
 
 cd $BASE_DIR/composes
 execute "$DOCKER_COMPOSE_FILES" "$COMPOSE_ACTION"
