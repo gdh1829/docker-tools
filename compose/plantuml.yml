@@ -9,7 +9,5 @@ services:
       - GRAPHVIZ_DOT=/usr/bin/dot
       - PLANTUML_STATS=off
       - HTTP_AUTHORIZATION=null
-    networks:
-      - devko_net
     labels:
       plantuml.description: "plantUML server working with vscode plantuml extention"
