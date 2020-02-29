@@ -19,4 +19,4 @@ services:
       redis.description: ""
 
 networks:
-    devko_net:
+  devko_net:
